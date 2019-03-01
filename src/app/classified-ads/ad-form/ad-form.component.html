@@ -1,0 +1,29 @@
+<form [formGroup]="adForm" class="formContainer" (ngSubmit)="saveAd()">
+    <mat-form-field class="row">
+      <input matInput type="text" placeholder="Antraštė" formControlName="title">
+      <button mat-button *ngIf="adForm.get('title').value" matSuffix mat-icon-button aria-label="Išvalyt" (click)="clearFormControl('title')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>  
+
+    <mat-form-field class="row">
+      <input matInput type="number" placeholder="Kaina" formControlName="price" min="10">
+      <mat-error *ngIf="adForm.get('price')?.invalid">Mažiausiai 10</mat-error>
+    </mat-form-field>    
+
+    <mat-form-field class="row">
+      <textarea matInput placeholder="Aprašymas" formControlName="description"></textarea>
+      <button mat-button *ngIf="adForm.get('description').value" matSuffix mat-icon-button aria-label="Išvalyt" (click)="clearFormControl('description')">
+        <mat-icon>close</mat-icon>
+      </button>      
+    </mat-form-field>      
+
+    <div class="row">
+        <button mat-stroked-button color="primary" type="submit">Skelbti</button>
+    </div>      
+
+    <div class="row">
+      <input type="file" capture="camera" accept="image/*" id="cameraInput" name="cameraInput" (change)="onFileSelected($event)">
+      <button type="button" (click)="onUpload()">Upload File</button>    
+    </div>    
+</form>

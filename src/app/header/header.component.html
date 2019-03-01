@@ -1,0 +1,4 @@
+<a *ngIf="!isloggedIn" routerLink="login">Login</a>
+<a *ngIf="isloggedIn" (click)="logout()">Log out</a>
+<a *ngIf="isloggedIn" routerLink="skelbimai">Skelbimai</a>
+<a *ngIf="isloggedIn" routerLink="skelbimai/naujas-skelbimas">Naujas skelbimas</a>

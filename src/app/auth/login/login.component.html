@@ -1,0 +1,6 @@
+<form [formGroup]='loginForm' class="loginForm">
+  <input formControlName="email" class="field" placeholder="email">
+  <input formControlName="password" class="field" placeholder="password" type="password">
+  <button (click)="signIn(true)" class="field">Register</button>
+  <button (click)="signIn(false)" class="field">Login</button>
+</form>
